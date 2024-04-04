@@ -2,19 +2,19 @@
 
 Implementation-of-Full-Adder-and-Full-subtractor-circuit
 
-**AIM:**
+## AIM:
 
 To design a Full Adder and Full Subtractor circuit and verify its truth table in Quartus using Verilog programming.
 
-**Equipments Required:**
+## Equipments Required:
 
 Hardware – PCs, Cyclone II , USB flasher
 
 Software – Quartus prime
 
-**Full Adder and Full Subtractor**
+## Full Adder and Full Subtractor:
 
-**Full Adder**
+## Full Adder:
 
 Full adder is a digital circuit used to calculate the sum of three binary bits. It consists of three inputs and two outputs. Two of the input variables, denoted by A and B, represent the two significant bits to be added. The third input, Cin, represents the carry from the previous lower significant position. Two outputs are necessary because the arithmetic sum of three binary digits ranges in value from 0 to 3, and binary 2 or 3 needs two digits. The two outputs are sum and carry.
 
@@ -24,9 +24,9 @@ Carry = AB + ACin + BCin
 
 ![image](https://github.com/naavaneetha/FULL_ADDER_SUBTRACTOR/assets/154305477/0f30ba51-5ffb-4198-845f-18e054f675e7)
 
-**Figure -1 FULL ADDER**
+## Figure -1 FULL ADDER
 
-**Full Subtractor**
+## Full Subtractor:
 
 A full subtractor is a combinational circuit that performs subtraction involving three bits, namely minuend, subtrahend, and borrow-in . It accepts three inputs: minuend, subtrahend and a borrow bit and it produces two outputs: difference and borrow.
 
@@ -36,22 +36,56 @@ Diff = A ⊕ B ⊕ Bin
 
 Borrow out = A'Bin + A'B + BBin
 
-**Truthtable**
+## Truthtable:
+![fulladd](/table1.png)<br>
+![fullsub](/table2.png)
+## Procedure:
+Full Adder:
 
-**Procedure**
+1.Open Quartus II and create a new project.
 
-Write the detailed procedure here
+2.Use schematic design entry to draw the full adder circuit.
 
-**Program:**
+3.The circuit consists of XOR, AND, and OR gates.
 
-/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
-*/
+4.Compile the design, verify its functionality through simulation.
 
-**RTL Schematic**
+5.Implement the design on the target device and program it.
 
-**Output Timing Waveform**
+Full Subtractor:
 
-**Result:**
+1.Follow the same steps as for the full adder.
+
+2.Draw the full subtractor circuit using schematic design.
+
+3.The circuit includes XOR, AND, OR gates to perform subtraction.
+
+4.Compile, simulate, implement, and program the design similarly to the full adder.
+
+## Program:
+
+ Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming<br>
+ Developed by:SETHUKKARASI C<br> RegisterNumber:212223230201
+ ```
+module fulladdsub(a,b,c,sum,carry,BO,DIFF);
+input a,b,c;
+output sum,carry,BO,DIFF;
+assign sum=a^b^c;
+assign carry= a&b | a&c | b&c;
+wire a0;
+not (a0,a);
+assign BO= b&c | a0&c | a0&b;
+assign DIFF=a^b^c;
+endmodule
+ ```
+
+## RTL Schematic:
+![rtl](/exp4rtl.png)
+
+## Output Timing Waveform:
+![output](/exp4output.png)
+
+## Result:
 
 Thus the Full Adder and Full Subtractor circuits are designed and the truth tables is verified using Quartus software.
 
